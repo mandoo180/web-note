@@ -1,0 +1,43 @@
+#+title: web-note
+#+author: 경수
+
+** Installation
+
+Install `leiningen'
+#+begin_src bash
+  # ubuntu
+  sudo apt install leiningen
+  # arch
+  sudo pacman -S leiningen
+#+end_src
+
+Install `openjdk-21-jdk'
+#+begin_src bash
+  # ubuntu, kali
+  sudo apt install openjdk-21-jdk
+  # arch
+  sudo pacman -S jdk21-openjdk
+#+end_src
+
+Build
+#+begin_src bash
+  # build jar file
+  lein uberjar
+  # to run
+  java -jar target/uberjar/web-note-0.1.0-SNAPSHOT-standalone.jar
+#+end_src
+
+** License
+
+Copyright © 2025 FIXME
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License 2.0 which is available at
+http://www.eclipse.org/legal/epl-2.0.
+
+This Source Code may also be made available under the following Secondary
+Licenses when the conditions for such availability set forth in the Eclipse
+Public License, v. 2.0 are satisfied: GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or (at your
+option) any later version, with the GNU Classpath Exception which is available
+at https://www.gnu.org/software/classpath/license.html.
