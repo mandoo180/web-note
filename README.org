@@ -3,7 +3,7 @@
 
 ** Installation
 
-Install `leiningen'
+Install `leiningen'.
 #+begin_src bash
   # ubuntu
   sudo apt install leiningen
@@ -11,7 +11,7 @@ Install `leiningen'
   sudo pacman -S leiningen
 #+end_src
 
-Install `openjdk-21-jdk'
+Install `openjdk-21-jdk'.
 #+begin_src bash
   # ubuntu, kali
   sudo apt install openjdk-21-jdk
@@ -24,8 +24,15 @@ Build
   # build jar file
   lein uberjar
   # to run
-  java -jar target/uberjar/web-note-0.1.0-SNAPSHOT-standalone.jar
+  java -jar target/uberjar/web-note-1.0.0-standalone.jar
 #+end_src
+
+Set environment variables.
+#+begin_src bash
+  export WEB_NOTE_HOME="$HOME/path/to/notes"
+  export WEB_NOTE_PORT=3000 # FIXME
+#+end_src
+
 
 ** License
 

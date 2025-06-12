@@ -11,19 +11,21 @@
 
 (def HOME (System/getProperty "user.home"))
 (def BASE (or (System/getenv "WEB_NOTE_HOME") (str HOME "/Documents/notes")))
+(def PORT (parse-long (or (System/getenv "WEB_NOTE_PORT") "3000")))
 
 (defn parse-org [org-file]
   (let* [script "export-org-to-html.el"
          path   (str BASE "/" org-file)
          cmd    ["emacs" "-x" script path]]
     (println (str "Running: " cmd))
+    ;; TODO: if :exit not 0 or if it's throw error throw
     (:out (apply sh cmd))))
 
 (defn page-wrapper [title & main]
   (html5
    [:head
     [:title title]
-    (include-css "https://cdn.simplecss.org/simple.min.css")]
+    (include-css "https://gongzhitaao.org/orgcss/org.css")]
    [:body
     [:header [:h1 title]]
     [:main main]
@@ -60,4 +62,4 @@
 (def app app-routes)
 
 (defn -main [& args]
-  (run-jetty app {:port 3000 :join? false}))
+  (run-jetty app {:port PORT :join? false}))
